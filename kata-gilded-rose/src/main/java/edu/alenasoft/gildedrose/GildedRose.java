@@ -5,6 +5,10 @@ import java.util.List;
 
 public class GildedRose {
 
+  public static final String BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT = "Backstage passes to a TAFKAL80ETC concert";
+  public static final String SULFURAS_HAND_OF_RAGNAROS = "Sulfuras, Hand of Ragnaros";
+  public static final String CONJURED_MANA_CAKE = "Conjured Mana Cake";
+  public static final String AGED_BRIE = "Aged Brie";
   public static List<Item> items = new ArrayList<>();
 
   public static void main(String[] args) {
@@ -12,11 +16,11 @@ public class GildedRose {
     System.out.println("OMGHAI!");
 
     items.add(new Item("+5 Dexterity Vest", 10, 20));
-    items.add(new Item("Aged Brie", 2, 0));
+    items.add(new Item(AGED_BRIE, 2, 0));
     items.add(new Item("Elixir of the Mongoose", 5, 7));
-    items.add(new Item("Sulfuras, Hand of Ragnaros", 0, 80));
-    items.add(new Item("Backstage passes to a TAFKAL80ETC concert", 15, 20));
-    items.add(new Item("Conjured Mana Cake", 3, 6));
+    items.add(new Item(SULFURAS_HAND_OF_RAGNAROS, 0, 80));
+    items.add(new Item(BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT, 15, 20));
+    items.add(new Item(CONJURED_MANA_CAKE, 3, 6));
 
     updateQuality();
 
@@ -28,11 +32,11 @@ public class GildedRose {
     }
   }
   public static UpdateQualityStrategy getStrategy(Item item){
-    switch (item.name.toString()){
-      case ("Aged Brie"):{return new AgedBrieStrategy();}
-      case ("Backstage passes to a TAFKAL80ETC concert") : return new BackstagePassesStrategy();
-      case ("Sulfuras, Hand of Ragnaros") : return new SulfurasStrategy();
-      case ("Conjured Mana Cake") : return new ConjuredStrategy();
+    switch (item.getName().toString()){
+      case AGED_BRIE:{return new AgedBrieStrategy();}
+      case BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT: return new BackstagePassesStrategy();
+      case SULFURAS_HAND_OF_RAGNAROS: return new SulfurasStrategy();
+      case CONJURED_MANA_CAKE: return new ConjuredStrategy();
       default:
           return new DefaultStrategy();
     }
